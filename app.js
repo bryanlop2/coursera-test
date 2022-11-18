@@ -1,49 +1,23 @@
-// var student = {
-//   name: "",
-//   type: "student",
-// };
-
-// document.addEventListener("DOMContentLoaded", contentLoaded);
-
-// function contentLoaded(event) {
-//   document.getElementById("name").addEventListener("keyup", keyup);
-// }
-
-// function keyup(event) {
-//   calculateNumericOutput();
-// }
-
-// function calculateNumericOutput() {
-//   student.name = document.getElementById("name").value;
-
-//   var totalNameValue = 0;
-//   for (var i = 0; i < student.name.length; i++) {
-//     totalNameValue += student.name.charCodeAt(i);
-//   }
-
-//   var output = "Total numeric value of person's name is " + totalNameValue;
-//   document.getElementById("output").innerText = output;
-// }
-
 (function () {
   "use strict";
-
   angular
-    .module("NameCalculator", [])
-    .controller("NameCalculatorController", function ($scope) {
-      $scope.name = "";
-      $scope.totalValue = 0;
-      $scope.displayNumeric = function () {
-        var totalNameValue = calculateNumericForString($scope.name);
-        $scope.totalValue = totalNameValue;
-      };
+    .module("LunchCheck", [])
+    .controller("LunchCheckController", LunchCheckController);
+  LunchCheckController.inject = ["$scope"];
+  function LunchCheckController($scope) {
+    $scope.dishes = "";
+    $scope.message = "";
 
-      function calculateNumericForString(string) {
-        var totalStringValue = 0;
-        for (var i = 0; i < string.length; i++) {
-          totalStringValue += string.charCodeAt(i);
-        }
-        return totalStringValue;
+    $scope.checkIfTooMuch = function () {
+      var amountOfDishes = $scope.dishes.split(",");
+      $scope.amountOfDishes = amountOfDishes;
+      if ((amountOfDishes == "")) {
+        $scope.message = "Please enter data first";
+      } else if (amountOfDishes.length <= 3) {
+        $scope.message = "Enjoy!";
+      } else {
+        $scope.message = "Too much!";
       }
-    });
+    };
+  }
 })();
