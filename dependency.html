@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="DIApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="angular.min.js"></script>
+    <script src="dependency.js"></script>
+    <title>Dependency Injection in Javascript (angularjs)</title>
+  </head>
+  <body>
+    <h1>Dependency Injection in Javascript (angularjs)</h1>
+    <div ng-controller="DIController">
+      <input type="text" ng-model="name" ng-blur="upper()" />
+      <div>
+        <button ng-click="feedBryan()">Feed Bryan</button>
+        <br />
+        <img ng-src="images/bryan_{{stateOfBeing}}.png" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
