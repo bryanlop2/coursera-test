@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="BindingApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="angular.min.js"></script>
+    <script src="binding.js"></script>
+    <title>Document</title>
+  </head>
+  <body ng-controller="BindingController">
+    <h1>2-way, 1-way and 1-time binding</h1>
+    <button ng-click="showNumberOfWatchers()">Log number of wathcers</button>
+    <button ng-click="setFullName()">Set full name</button>
+
+    full name is: {{ ::fullName }} <br />
+    <button ng-click="logFirstName()">Log first name</button>
+    <button ng-click="logFullName()">Log full name</button>
+
+    <div>
+      <input type="text" ng-model="firstName" />
+    </div>
+    <div>
+      <h3>Shopping List:</h3>
+      <ul>
+        <li ng-repeat="item in shoppingList1">{{ item }}</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Shopping List 2:</h3>
+      <ul>
+        <li ng-repeat="item2 in shoppingList2">{{ item2.name }}</li>
+      </ul>
+    </div>
+    <input type="text" ng-model="shoppingList2[0].quantity" />
+    <div>
+      <h3>Shopping List 3:</h3>
+      <ul>
+        <li ng-repeat="item2 in shoppingList2">
+          {{$index+1}} {{ item2.name }} {{item2.quantity}}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <input type="text" ng-model="newItemName" placeholder="Item Name" />
+      <input
+        type="text"
+        ng-model="newItemQuantity"
+        placeholder="Item Quantity"
+      />
+      <input type="text" ng-model="search" />
+      <ul>
+        <li ng-repeat="item in shoppingList1 | filter : search">{{item}}</li>
+      </ul>
+      <button ng-click="addToList()">Add to List</button>
+    </div>
+  </body>
+</html>
