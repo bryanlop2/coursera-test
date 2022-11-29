@@ -6,8 +6,13 @@
         <span>{{item.description}}</span>
       </span>
       <span>
-        <a ng-click="foundCtrl.onRemove({index: $index});" href="#"
-          ><i class="material-icons" alt="Don't want this">Don't want this one!</i></a
+        <a
+          class="btn btn-default"
+          ng-click="foundCtrl.onRemove({index: $index});"
+          href=""
+          ><i class="material-icons" alt="Don't want this"
+            >Don't want this one!</i
+          ></a
         >
       </span>
     </li>
