@@ -1,4 +1,4 @@
-<div id="result" class="demo-card-wide mdl-card mdl-shadow--2dp">
+<div>
   <ul ng-repeat="item in foundCtrl.items">
     <li>
       <span>
@@ -6,10 +6,7 @@
         <span>{{item.description}}</span>
       </span>
       <span>
-        <a
-          ng-click="foundCtrl.onRemove({index: $index});"
-          class="mdl-list__item-secondary-action"
-          href="#"
+        <a ng-click="foundCtrl.onRemove({index: $index});" href="#"
           ><i class="material-icons" alt="Don't want this">clear</i></a
         >
       </span>
