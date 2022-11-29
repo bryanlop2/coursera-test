@@ -13,9 +13,26 @@
     <div ng-controller="DIController">
       <input type="text" ng-model="name" ng-blur="upper()" />
       <div>
+        <h1>{{name}}</h1>
+        <div ng-repeat="item in radioButtonValues">
+          <input
+            type="radio"
+            ng-required="properties.required"
+            ng-disabled="true"
+            name="pbRadioBox1"
+            ng-value="item.label"
+            ng-checked="selectedValue"
+          />
+          <label for="html">{{item.label}}</label><br />
+        </div>
         <button ng-click="feedBryan()">Feed Bryan</button>
         <br />
         <img ng-src="images/bryan_{{stateOfBeing}}.png" alt="" />
+      </div>
+      <div>
+        nueo
+        <input type="text" ng-model="value2" ng-change="inputCheck()" />
+        <p ng-if="showRegexError">{{showRegexError}}</p>
       </div>
     </div>
   </body>
