@@ -19,7 +19,7 @@
       controllerAs: "foundCtrl",
       bindToController: true,
     };
-
+    //call back &, < one way binding and & two way binding
     return ddo;
   }
 
